@@ -7,7 +7,8 @@
         <h1>Customers</h1>
         <ul>
             <% customers.forEach(function(customer) { %>
-                <li><%= customer.name %> - <%= customer.nickname %> - <%= customer.age %> - <%= customer.favorite_food %> - <button onclick="location.href='/delete-customer/<%= customer.rowid %>'">Delete</button></li>
+                <!-- Adjusted for XSS vulnerability https://semgrep.dev/docs/cheat-sheets/express-xss/ -->
+                <li><%- customer.name %> - <%- customer.nickname %> - <%- customer.age %> - <%- customer.favorite_food %> - <button onclick="location.href='/delete-customer/<%= customer.rowid %>'">Delete</button></li>
             <% }); %>
         </ul>
         <a href="/add-customer">Add New Customer</a>

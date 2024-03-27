@@ -40,7 +40,7 @@ app.post('/customers', (req, res) => {
         if (err) {
             res.status(500).send(err.message);
         } else {
-            res.status(201).send(`Customer created with ID: ${this.lastID}`);
+            res.redirect('/customers');
         }
     });
 });
