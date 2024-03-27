@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Customer App</title>
+    </head>
+    <body>
+        <h1>Customers</h1>
+        <ul>
+            <% customers.forEach(function(customer) { %>
+                <li><%= customer.name %> - <%= customer.nickname %> - <%= customer.age %> - <%= customer.favorite_food %> - <button onclick="location.href='/delete-customer/<%= customer.rowid %>'">Delete</button></li>
+            <% }); %>
+        </ul>
+        <a href="/add-customer">Add New Customer</a>
+    </body>
+</html>
