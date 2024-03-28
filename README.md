@@ -50,7 +50,7 @@ Use the context within the URI to run any script.
 ?context=<script>alert("LEAVE THIS PAGE! YOU ARE BEING HACKED!");</script>
 ```
 
-<http://localhost:3000/customers?context=<script>alert("LEAVE THIS PAGE! YOU ARE BEING HACKED!");</script>>
+http://localhost:3000/customers?context=<script>alert("LEAVE THIS PAGE! YOU ARE BEING HACKED!");</script>
 
 8. Sensitive data exposure:
 Similar to the step above, the following script can be used in the context.
