@@ -28,7 +28,7 @@ mpm run dev
 
 4. Generate new customers with any random data.
 
-5. SQL Injection
+## SQL Injection
 
 Using inspect element, Inject the following into any of the delete buttons:
 
@@ -36,14 +36,14 @@ Using inspect element, Inject the following into any of the delete buttons:
 1 OR 1=1
 ```
 
-6. Stored XSS:
+## Stored XSS:
 Insert the below in any of the text fields when adding a new customer:
 
 ```
 <script>alert('XSS')</script>
 ```
 
-7. DOM XSS:
+## DOM XSS:
 Use the context within the URI to run any script.
 
 ```
@@ -52,7 +52,7 @@ Use the context within the URI to run any script.
 
 http://localhost:3000/customers?context=<script>alert("LEAVE THIS PAGE! YOU ARE BEING HACKED!");</script>
 
-8. Sensitive data exposure:
+## Sensitive data exposure:
 Similar to the step above, the following script can be used in the context.
 
 ```
