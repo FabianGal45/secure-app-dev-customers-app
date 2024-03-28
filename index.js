@@ -89,7 +89,7 @@ app.put('/customers/:id', (req, res) => {
 app.get('/delete-customer/:id', (req, res) => {
     const id = req.params.id; 
 
-    db.run(`DELETE FROM customers WHERE rowid = ${id}`, function(err) {
+    db.run(`DELETE FROM customers WHERE rowid = ?`, [id], function(err) {
         if (err) {
             res.status(500).send(err.message);
         } else {
