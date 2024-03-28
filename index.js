@@ -85,7 +85,7 @@ app.put('/customers/:id', (req, res) => {
 });
   
 
-// Delete a customer - adjusted for SQL injection 
+// Delete a customer - Fixed SQL injection
 app.get('/delete-customer/:id', (req, res) => {
     const id = req.params.id; 
 

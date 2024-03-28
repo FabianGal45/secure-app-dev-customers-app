@@ -21,7 +21,7 @@
             <% customers.forEach(function(customer) { %>
                 <!-- Name and Age will be considered Sensitive data -->
                 <!-- Adjusted for Stored XSS vulnerability https://semgrep.dev/docs/cheat-sheets/express-xss/ -->
-                <li><%- customer.nickname %> - <%- customer.favorite_food %> - <button onclick="location.href='/delete-customer/<%= customer.rowid %>'">Delete</button></li>
+                <li><%= customer.nickname %> - <%= customer.favorite_food %> - <button onclick="location.href='/delete-customer/<%= customer.rowid %>'">Delete</button></li>
             <% }); %>
         </ul>
         <a href="/add-customer">Add New Customer</a>
