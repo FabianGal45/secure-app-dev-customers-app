@@ -17,7 +17,7 @@ db.serialize(() => {
 
 // Root redirects to the /customers 
 app.get('/', (req, res) => {
-    res.redirect('/customers');
+    res.redirect('/customers?context=Customers');
 });
 
 // Log the used port and URL of the app

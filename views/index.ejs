@@ -4,10 +4,22 @@
         <title>Customer App</title>
     </head>
     <body>
-        <h1>Customers</h1>
+        <!-- Script implemented to show the DOM XSS - https://www.invicti.com/learn/dom-based-cross-site-scripting-dom-xss/ -->
+        <h1>
+        <script>
+            var pos=document.URL.indexOf("context=");
+            console.log(pos)
+
+            //display if the "contex=" has any value
+            if(pos > -1){
+                var decodedText = decodeURIComponent(document.URL.substring(pos+8))
+                document.write(decodedText)
+            }
+         </script>
+        </h1>
         <ul>
             <% customers.forEach(function(customer) { %>
-                <!-- Adjusted for XSS vulnerability https://semgrep.dev/docs/cheat-sheets/express-xss/ -->
+                <!-- Adjusted for Stored XSS vulnerability https://semgrep.dev/docs/cheat-sheets/express-xss/ -->
                 <li><%- customer.name %> - <%- customer.nickname %> - <%- customer.age %> - <%- customer.favorite_food %> - <button onclick="location.href='/delete-customer/<%= customer.rowid %>'">Delete</button></li>
             <% }); %>
         </ul>
