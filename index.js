@@ -56,16 +56,7 @@ app.get('/customers', (req, res) => {
     });
 });
 
-// Get all customers but for a REST api which displays data in a JSON format. This is used to get and display sensitive information as a vulnerability. 
-app.get('/api/customers', (req, res) => {
-    db.all("SELECT * FROM customers", [], (err, rows) => {
-        if (err) {
-            res.status(500).send(err.message);
-        } else {
-            res.json(rows);
-        }
-    });
-});
+//Removed API functionality as it is not needed and only required to prove data vulnerability
   
 // Update a customer
 app.put('/customers/:id', (req, res) => {
