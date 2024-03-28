@@ -5,7 +5,7 @@
     </head>
     <body>
         <!-- Script implemented to show the DOM XSS - https://www.invicti.com/learn/dom-based-cross-site-scripting-dom-xss/ -->
-        <h1>
+        <h1><span id="title"></span></h1>
         <script>
             var pos=document.URL.indexOf("context=");
             console.log(pos)
@@ -13,10 +13,10 @@
             //display if the "contex=" has any value
             if(pos > -1){
                 var decodedText = decodeURIComponent(document.URL.substring(pos+8))
-                document.write(decodedText)
+                document.getElementById("title").textContent = decodedText
             }
          </script>
-        </h1>
+        
         <ul>
             <% customers.forEach(function(customer) { %>
                 <!-- Name and Age will be considered Sensitive data -->
